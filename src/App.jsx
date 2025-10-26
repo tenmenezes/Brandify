@@ -47,7 +47,7 @@ function App() {
           </nav>
 
           <button
-            className="md:hidden p-2 rounded-lg"
+            className="md:hidden p-2 rounded-lg transition"
             onClick={() => setOpen(true)}
           >
             <Menu className="size-6" />
@@ -56,7 +56,37 @@ function App() {
 
         {open && (
           <div className="md:hidden">
-            <p>Menu</p>
+            <div
+              className="fixed bg-black/60 transition"
+              onClick={() => setOpen(false)}
+            >
+              <div className="fixed right-0 top-0 h-full w-60 bg-slate-900 border-l border-white/10 p-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="size-6 text-fuchsia-400" />
+                    <span className="font-semibold">Minha Marca</span>
+                  </div>
+                  <button
+                    className="p-2 rounded-lg transition"
+                    onClick={() => setOpen(false)}
+                  >
+                    <X className="size-6" />
+                  </button>
+                </div>
+                <div className="flex flex-col gap-4 bg-slate-900 p-4 w-90">
+                  {navLinks.map((l) => (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      className="text-slate-200"
+                      onClick={() => setOpen(false)}
+                    >
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </header>
