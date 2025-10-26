@@ -11,7 +11,7 @@ import {
   Shield,
   Zap,
   Sparkles,
-  Sparkle,
+  Clock,
 } from "lucide-react";
 
 // Criando links de navegação
@@ -225,7 +225,7 @@ function App() {
 
       {/* Depoimentos */}
       <section id="testmonials" className="mx-auto max-w-6xl px-4 py-8">
-        <h2 className="text-3xl font-bold">Quem usou, aprovou</h2>
+        <h2 className="text-3xl font-bold">Quem usou, Aprovou</h2>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
           {[1, 2, 3].map((i) => (
             <blockquote
@@ -247,6 +247,45 @@ function App() {
               </footer>
             </blockquote>
           ))}
+        </div>
+      </section>
+
+      {/* Preço */}
+      <section id="pricing" className="mx-auto max-w-6xl px-4 py-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div>
+            <h2 className="text-3xl font-bold">Preço único, Sem Complicação</h2>
+            <p className="text-slate-300 mt-6 max-w-2xl">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos a
+              expedita accusantium facilis veritatis qui mollitia quisquam iure
+              ab eius!
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-slate-300">
+              <li className="flex items-center gap-2">
+                <Check className="size-4 text-emerald-400" /> Benefício 1
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="size-4 text-emerald-400" /> Benefício 2
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="size-4 text-emerald-400" /> Benefício 3
+              </li>
+            </ul>
+          </div>
+          <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8">
+            <div className="text-sm text-slate-400">A partir de</div>
+            <div className="text-5xl font-extrabold mt-2">R$ 199,90</div>
+            <div className="flex text-sm text-slate-300 mt-4 gap-2 items-center">
+              {" "}
+              <Clock className="size-4 text-fuchsia-400" /> Somente Hoje!
+            </div>
+            <button
+              
+              className="mt-6 rounded-2xl bg-fuchsia-600 hover:bg-fuchsia-700 px-6 py-3 font-medium cursor-pointer transition"
+            >
+              Comprar
+            </button>
+          </div>
         </div>
       </section>
     </div>
