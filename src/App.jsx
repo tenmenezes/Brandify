@@ -11,6 +11,7 @@ import {
   Shield,
   Zap,
   Sparkles,
+  Sparkle,
 } from "lucide-react";
 
 // Criando links de navegação
@@ -28,7 +29,7 @@ function App() {
     <div className="bg-slate-950 text-slate-100 selection:bg-fuchsia-500/30">
       {/* Navbar */}
 
-      <header className="sticky top-0 z-40 border-b border-white/5">
+      <header className="sticky top-0 z-40 border-b border-white/5 bg-slate-950">
         <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2">
             <Sparkles className="size-5 text-fuchsia-400" />
@@ -93,6 +94,7 @@ function App() {
       </header>
 
       {/* Hero */}
+
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-6xl px-4 py-20 relative">
           <motion.h1
@@ -166,7 +168,63 @@ function App() {
       </section>
 
       {/* Features */}
-      
+
+      <section id="features" className="mx-auto max-w-6xl px-4 py-8">
+        <h2 className="text-3xl font-bold">Tudo o que você precisa</h2>
+        <p className="text-slate-300 mt-2 max-w-2xl">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos a
+          expedita accusantium facilis veritatis qui mollitia quisquam iure ab
+          eius!
+        </p>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            {
+              title: "Design Responsivo",
+              desc: "Funciona em qualquer tela",
+              icon: <Sparkles className="size-5 text-fuchsia-400" />,
+            },
+            {
+              title: "Design Responsivo",
+              desc: "Funciona em qualquer tela",
+              icon: <Star className="size-5 text-amber-400" />,
+            },
+            {
+              title: "Design Responsivo",
+              desc: "Funciona em qualquer tela",
+              icon: <Zap className="size-5 text-emerald-400" />,
+            },
+            {
+              title: "Design Responsivo",
+              desc: "Funciona em qualquer tela",
+              icon: <Shield className="size-5 text-sky-400" />,
+            },
+            {
+              title: "Design Responsivo",
+              desc: "Funciona em qualquer tela",
+              icon: <Sparkles className="size-5 text-fuchsia-400" />,
+            },
+            {
+              title: "Design Responsivo",
+              desc: "Funciona em qualquer tela",
+              icon: <Star className="size-5 text-amber-400" />,
+            },
+          ].map((f) => (
+            <div
+              key={f.title}
+              className="rounded-2xl border border-white/10 bg-white/[0.02] p-6"
+            >
+              <div className="flex items-center gap-3">
+                {f.icon}
+                <p className="font-semibold">{f.title}</p>
+              </div>
+              <p className="text-sm font-slate-400 mt-2">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Depoimentos */}
+
     </div>
   );
 }
