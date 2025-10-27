@@ -70,7 +70,7 @@ function App() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Sparkles className="size-6 text-fuchsia-400" />
-                    <span className="font-semibold">Minha Marca</span>
+                    <span className="font-semibold">Brandify</span>
                   </div>
                   <button
                     className="p-2 rounded-lg transition"
