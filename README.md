@@ -1,6 +1,6 @@
 # Brandify
 
-![Brandify Banner](./public/Captura_de_tela_de_2025-10-26_20-26-00.png)
+![Brandify Banner](./public/brandify.png)
 
 ---
 
@@ -65,16 +65,22 @@ npm run preview
 📁 Estrutura do Projeto
 ```
 Brandify/
-├─ public/               → Arquivos estáticos (ícones, imagens, etc)
-├─ src/
-│  ├─ components/        → Componentes reutilizáveis
-│  ├─ pages/             → Páginas ou seções
-│  ├─ animations/        → Variantes e configurações do Framer Motion
-│  ├─ styles/            → Configurações Tailwind
-│  └─ App.jsx            → Componente raiz
-├─ tailwind.config.js    → Configuração do Tailwind
-├─ vite.config.js        → Configuração do Vite
-└─ package.json          → Dependências e scripts
+    ├── 📁 public
+    │   ├── 🖼️ brandify.png
+    │   └── 🖼️ react.svg
+    ├── 📁 src
+    │   ├── 🎨 App.css
+    │   ├── 📄 App.jsx
+    │   ├── 🎨 index.css
+    │   └── 📄 main.jsx
+    ├── ⚙️ .gitignore
+    ├── 📄 LICENSE
+    ├── 📝 README.md
+    ├── 📄 eslint.config.js
+    ├── 🌐 index.html
+    ├── ⚙️ package-lock.json
+    ├── ⚙️ package.json
+    └── 📄 vite.config.js
 ```
 
 ---
