@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import {
   ArrowRight,
@@ -14,8 +14,6 @@ import {
   Clock,
   Edit3,
   MessageCircle,
-  MessageCircleQuestion,
-  Info,
 } from "lucide-react";
 
 // Criando links de navegação
@@ -35,9 +33,10 @@ function App() {
 
       <header className="sticky top-0 z-40 border-b border-white/5 bg-slate-950">
         <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <Sparkles className="size-5 text-fuchsia-400" />
-            <span className="font-bold tracking-tight">Brandify</span>
+          <a href="#home" className="flex items-center gap-2">
+            <span className="font-extrabold tracking-tight tracking-widest text-fuchsia-400">
+              Brandify
+            </span>
           </a>
 
           <nav className="hidden md:flex items-center gap-6 text-sm">
@@ -60,18 +59,27 @@ function App() {
           </button>
         </div>
 
-        {open && (
-          <div className="md:hidden">
-            <div
-              className="fixed bg-black/60 transition"
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              className="md:hidden fixed inset-0 bg-black/60 flex justify-end"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
             >
-              <div className="fixed right-0 top-0 h-full w-60 bg-slate-900 border-l border-white/10 p-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="size-6 text-fuchsia-400" />
-                    <span className="font-semibold">Brandify</span>
-                  </div>
+              <motion.div
+                className="h-full w-60 bg-slate-900 border-l border-white/10 p-6"
+                initial={{ x: 300 }}
+                animate={{ x: 0 }}
+                exit={{ x: 300 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                onClick={(e) => e.stopPropagation()} // evita fechar ao clicar no painel
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <span className="tracking-widest font-extrabold text-fuchsia-400">
+                    Brandify
+                  </span>
                   <button
                     className="p-2 rounded-lg transition"
                     onClick={() => setOpen(false)}
@@ -79,7 +87,7 @@ function App() {
                     <X className="size-6" />
                   </button>
                 </div>
-                <div className="flex flex-col gap-4 bg-slate-900 p-4 w-90">
+                <div className="flex flex-col gap-4">
                   {navLinks.map((l) => (
                     <a
                       key={l.href}
@@ -91,15 +99,15 @@ function App() {
                     </a>
                   ))}
                 </div>
-              </div>
-            </div>
-          </div>
-        )}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Hero */}
 
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden" id="home">
         <div className="mx-auto max-w-6xl px-4 py-20 relative">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -116,7 +124,7 @@ function App() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-4 text-slate-400 max-w-2xl"
           >
             Crie uma presença digital autêntica, com design elegante,
@@ -125,7 +133,7 @@ function App() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.5 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-8 flex flex-row gap-3"
           >
             <a
@@ -145,12 +153,7 @@ function App() {
               Ver Recursos
             </a>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 2 }}
-            className="mt-14 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4"
-          >
+          <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
             {[
               {
                 label: "Velocidade",
@@ -165,9 +168,12 @@ function App() {
                 desc: "Layouts estratégicos que aumentam cliques e resultados de vendas.",
               },
             ].map((item, i) => (
-              <div
+              <motion.div
                 key={item.label}
                 className="rounded-2xl border flex flex-col border-white/10 bg-white/[0.02] p-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: i * 0.5 }}
               >
                 <div className="flex items-center gap-3">
                   {i == 0 && <Zap className="size-5 text-emerald-400" />}
@@ -176,9 +182,9 @@ function App() {
                   <div className="font-semibold">{item.label}</div>
                 </div>
                 <p className="text-sm text-slate-400 mt-2">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -354,7 +360,12 @@ function App() {
       {/* Footer */}
       <footer className="border-t border-white/5">
         <div className="mx-auto max-w-6xl px-4 py-8 flex flex-wrap items-center justify-center lg:justify-between md:justify-between gap-4">
-          <div>Brandify @ {new Date().getFullYear()}</div>
+          <div>
+            <span className="tracking-widest font-extrabold text-fuchsia-400">
+              Brandify
+            </span>{" "}
+            @ {new Date().getFullYear()}
+          </div>
           <div className="flex flex-wrap gap-4 justify-center items-center lg:justify-between md:justify-between">
             <a
               href="#"
