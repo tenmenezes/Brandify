@@ -51,10 +51,10 @@ npm install
 # Inicie o servidor de desenvolvimento
 npm run dev
 
-Abra no navegador:
-👉 http://localhost:5173
+# Abra no navegador:
+http://localhost:5173
 
-Para gerar a build de produção:
+# Para gerar a build de produção:
 
 npm run build
 npm run preview
