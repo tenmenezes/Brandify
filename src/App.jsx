@@ -149,7 +149,7 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 2 }}
-            className="mt-14 grid grid-cols-3 gap-4"
+            className="mt-14 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4"
           >
             {[
               {
@@ -167,7 +167,7 @@ function App() {
             ].map((item, i) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-white/10 bg-white/[0.02] p-6"
+                className="rounded-2xl border flex flex-col border-white/10 bg-white/[0.02] p-6"
               >
                 <div className="flex items-center gap-3">
                   {i == 0 && <Zap className="size-5 text-emerald-400" />}
@@ -353,9 +353,9 @@ function App() {
 
       {/* Footer */}
       <footer className="border-t border-white/5">
-        <div className="mx-auto max-w-6xl px-4 py-8 flex items-center justify-between">
+        <div className="mx-auto max-w-6xl px-4 py-8 flex flex-wrap items-center justify-center lg:justify-between md:justify-between gap-4">
           <div>Brandify @ {new Date().getFullYear()}</div>
-          <div className="flex  gap-4">
+          <div className="flex flex-wrap gap-4 justify-center items-center lg:justify-between md:justify-between">
             <a
               href="#"
               className="text-slate-300 hover:text-fuchsia-300 transition"
