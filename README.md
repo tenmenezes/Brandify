@@ -1,6 +1,6 @@
 # Brandify
 
-![Brandify Banner](./public/brandify.png)
+![Brandify Banner](./public/Captura_de_tela_de_2025-10-26_20-26-00.png)
 
 ---
 
