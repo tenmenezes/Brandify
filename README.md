@@ -115,6 +115,5 @@ Veja o arquivo LICENSE para mais detalhes.
 ---
 
 <p align="center">
-  Feito com 💙 por <a href="https://github.com/tenmenezes">Ten Menezes (Ten Menezes)</a> 🚀
+  Feito com 💙 por <a href="https://github.com/tenmenezes">Ten Menezes</a>
 </p>
----
